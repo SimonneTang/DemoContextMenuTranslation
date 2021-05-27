@@ -24,59 +24,57 @@ public class MainActivity extends AppCompatActivity {
         registerForContextMenu(tvTranslatedText);
         registerForContextMenu(TvTranslatedText2);
 
-        }
+    }
+
     @Override
     public void onCreateContextMenu(ContextMenu menu, View v,
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
 
-        menu.add(0,0,0,"English");
-        menu.add(0,1,1,"Italian");
+        menu.add(0, 0, 0, "English");
+        menu.add(0, 1, 1, "Italian");
 
-        if(v == tvTranslatedText){
+        if (v == tvTranslatedText) {
             wordClicked = "Hello";
-        }
-        else if(v == TvTranslatedText2){
+        } else if (v == TvTranslatedText2) {
             wordClicked = "Bye";
         }
 
     }
+
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        if(wordClicked.equalsIgnoreCase("Hello")){
-            if(item.getItemId()==0) {
+        if (wordClicked.equalsIgnoreCase("Hello")) {
+            if (item.getItemId() == 0) {
                 Toast.makeText(MainActivity.this, "English is chosen", Toast.LENGTH_SHORT).show();
                 tvTranslatedText.setText("Hello");
 
                 return true;
-            }
-            else if(item.getItemId()==1)
-            {
+            } else if (item.getItemId() == 1) {
                 Toast.makeText(MainActivity.this, "Italian is chosen", Toast.LENGTH_SHORT).show();
                 tvTranslatedText.setText("Ciao");
 
                 return true;
             }
+        }
 
 
-        if(wordClicked.equalsIgnoreCase("Bye")){
-            if(item.getItemId() == 0){
+        if (wordClicked.equalsIgnoreCase("Bye")) {
+            if (item.getItemId() == 0) {
                 Toast.makeText(MainActivity.this, "English is chosen", Toast.LENGTH_SHORT).show();
                 TvTranslatedText2.setText("Bye");
 
                 return true;
-            }
-            else if(wordClicked.equalsIgnoreCase("Bye")){
-                if(item.getItemId() == 1){
-                    Toast.makeText(MainActivity.this, "Italian is chosen", Toast.LENGTH_SHORT).show();
-                    TvTranslatedText2.setText("Addio");
+            } else if (item.getItemId() == 1) {
+                Toast.makeText(MainActivity.this, "Italian is chosen", Toast.LENGTH_SHORT).show();
+                TvTranslatedText2.setText("Addio");
 
-                    return true;
-                }
+                return true;
             }
+
         }
 
-    }
+
         return super.onContextItemSelected(item);
     }
 }
